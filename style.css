@@ -1,0 +1,192 @@
+*, *::before, *::after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+:root{
+	--body-bg: ;
+	--radius: 20px;
+	--gap: 0.4rem;
+	--red: #ec755d;
+	--red-light: #ff9b86;
+	--cream: #f8e9dd;
+	--cream-white: #fffbf6;
+	--white: #fff;
+	--medium-brown: #92857a;
+	--dark-brown: #382314d6;
+	--cyan: #76b5bc;
+	--cyan-light: #b4e0e5;
+	--padding: 30px;
+	--radius: 10px;
+	--radius-small: 3px;
+	--chart-gap: 12px;
+	--logo-width: 60px;
+}
+
+img{
+	width: var(--logo-width);
+}
+
+body{
+	width: 100vw;
+	height: 100vh;
+	background:var(--cream);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper{
+	width: 100%;
+	margin: 1rem;
+	max-width: 500px;
+	padding: 2rem 0;
+}
+
+header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: var(--red);
+	padding: 1rem;
+	margin-bottom: 2rem;
+	border-radius: var(--radius);
+}
+
+.column{
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap);
+	justify-content: center;
+	/* align-items: center; */
+}
+
+
+
+.text-bold{
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.text-top{
+	text-transform: capitalize;
+	color: var(--white);
+	font-weight: bold;
+}
+
+main{
+	background: var(--white);
+	padding: var(--padding);
+	border-radius: var(--radius);
+}
+
+
+footer{
+	display: flex;
+	padding-top: var(--padding);
+	justify-content: space-between;
+}
+
+.charts{
+	width: 100%;
+	height: 300px;
+	display: flex;
+	gap: calc(var(--gap) * 2);
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #000;
+}
+
+.heading{
+	padding-bottom: 1rem;
+
+}
+
+.white{
+	color: var(--white);
+}
+
+.heading-big{
+	font-size: 2.4rem;
+	font-weight: bold;
+}
+
+.text{
+	font-size: 1.1rem;
+}
+
+.chart-bar{
+	height: 0%;
+	position: relative;
+	opacity: 0;
+	width: 100%;
+	background:var(--red);
+	border-radius: var(--radius-small);
+	cursor: pointer;
+}
+
+.chart-bar:hover{
+	background:var(--red-light);
+}
+
+.chart-bar::before{
+	content: "$"attr(data-value);
+	position: absolute;
+	z-index: 99999;
+	background-color: var(--dark-brown);
+	color: var(--cream-white);
+	border-radius: var(--radius-small);
+	padding: 10px; 
+	opacity: 0;
+	transform: translate(-50%, 0);
+	transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+	top: -45px;
+}
+
+.chart:hover .chart-bar::before{
+	opacity: 1;
+	transform: translate(0%, -10%);
+}
+
+.chart{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.align-center{
+	text-align: center;
+}
+
+.fade-in{
+	opacity: 0;
+	transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+	transform: translateY(5px);
+}
+
+.label-text{
+	font-size: 1.2rem;
+}
+
+@media(max-width: 768px){
+	html{
+		font-size: 14px;
+	}
+	.heading-big{
+		font-size: 1.4rem;
+	}
+	.text{
+		font-size: 1.32rem;
+	}
+}
+
+
+@media(max-width: 340px){
+	html{
+		font-size: 12px;
+	}
+
+}
